@@ -9,9 +9,9 @@ import {Admin} from "../models/admin";
 @Injectable({
   providedIn: 'root'
 })
-export class AdminService {
+export class AdminsService {
 
-  adminArr: Admin[] = []
+  adminsArr: Admin[] = []
   admin: Admin
   adminsUrl="http://localhost:8080/admins"
 
@@ -22,13 +22,13 @@ export class AdminService {
   getAdmins(): Observable<Admin[]>{
     return this.http.get<Admin[]>(this.adminsUrl)
       .pipe(
-        tap(admins => this.adminArr = admins),
+        tap(admins => this.adminsArr = admins),
         catchError(this.errorHandler.bind(this))
       );
   }
 
   getAdminById(adminId: number | undefined): Observable<Admin>{
-    return this.http.get<Admin>(this.adminArr+"/"+adminId);
+    return this.http.get<Admin>(this.adminsUrl+"/"+adminId);
   }
 
   createAdmin(admin:Admin):Observable<Object>{
@@ -36,9 +36,9 @@ export class AdminService {
   }
 
   deleteAdmin(adminId: number | undefined):Observable<Admin[]>{
-    return this.http.delete<Admin[]>(this.adminArr+"/"+adminId)
+    return this.http.delete<Admin[]>(this.adminsUrl+"/"+adminId)
       .pipe(
-        tap(admins => this.adminArr = admins)
+        tap(admins => this.adminsArr = admins)
       );
   }
 

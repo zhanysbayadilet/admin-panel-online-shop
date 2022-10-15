@@ -1,0 +1,85 @@
+<div class="py-4 px-6 rounded mb-2 max-w-2xl container mx-auto pt-5 ">
+  <h2 class="mt-2 mb-4 text-center text-3xl font-bold tracking-tight text-gray-900">
+    {{admin.firstname}} {{admin.lastname}}</h2>
+  <div class="flex flex-row">
+
+  </div>
+  <div class="relative overflow-auto">
+
+
+<!--    <div class="overflow-x-auto border rounded-lg">-->
+<!--      <table class="table table-compact w-full">-->
+<!--        &lt;!&ndash; head &ndash;&gt;-->
+<!--        <thead>-->
+<!--        <tr>-->
+<!--          <th>Id</th>-->
+<!--          <th>Name</th>-->
+<!--          <th>Last name</th>-->
+<!--          <th>Email</th>-->
+<!--          <th>Password</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        &lt;!&ndash; row &ndash;&gt;-->
+<!--        <tr>-->
+<!--          <th>{{admin.id}}</th>-->
+<!--          <td>{{admin.firstname}}</td>-->
+<!--          <td>{{admin.lastname}}</td>-->
+<!--          <td>{{admin.email}}</td>-->
+<!--          <td>{{admin.password}}</td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--      </table>-->
+<!--    </div>-->
+<!--    <div class="flex flex-row mt-2">-->
+<!--      <button type="button"-->
+<!--              class="btn btn-sm border-gray-400 bg-white text-black mr-2-->
+<!--                     hover:bg-gray-200 hover:border-gray-200"-->
+<!--              (click)='updateAdmin(admin.id)'>Edit</button>-->
+<!--      <button type="button"-->
+<!--              class="btn btn-sm border-gray-400 bg-white text-black-->
+<!--                     hover:bg-red-600 hover:text-white hover:border-red-600"-->
+<!--              (click)='deleteAdmin(admin.id)'>Delete</button>-->
+<!--    </div>-->
+
+    <div class="overflow-hidden bg-white">
+      <div class="border rounded-lg border-gray-200">
+        <dl class="rounded-lg">
+          <div class="bg-white px-4 rounded-lg py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">ID</dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{admin.id}}</dd>
+          </div>
+          <div class="bg-gray-100 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">Firstname</dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{admin.firstname}}</dd>
+          </div>
+          <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">Lastname</dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{admin.lastname}}</dd>
+          </div>
+          <div class="bg-gray-100 rounded-b-lg px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">Email address</dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{admin.email}}</dd>
+          </div>
+          <div class="bg-gray-100 rounded-b-lg px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt class="text-sm font-medium text-gray-500">Password</dt>
+            <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{admin.password}}</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+    <div class="flex flex-row mt-2">
+      <button type="button"
+              class="btn btn-sm border-gray-400 bg-white text-black mr-2
+                     hover:bg-gray-200 hover:border-gray-200"
+              (click)='updateAdmin(admin.id)'>Edit</button>
+      <button type="button"
+              class="btn btn-sm border-gray-400 bg-white text-black
+                     hover:bg-red-600 hover:text-white hover:border-red-600"
+              (click)='deleteAdmin(admin.id)'>Delete</button>
+    </div>
+
+  </div>
+</div>
+
+

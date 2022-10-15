@@ -1,60 +1,51 @@
-<div class="py-4 px-6 rounded mb-2">
-  <h2 class="mt-2 mb-3 text-center text-3xl font-bold tracking-tight text-gray-900">List of people</h2>
-  <input type="text"
-         class="mb-3 mt-2 border rounded py-2 px-4 w-full"
-         placeholder="Search..."
-         [(ngModel)]="term">
+<div class="py-4 px-6 rounded mb-2 max-w-2xl container mx-auto pt-5">
+  <div class="alert alert-success shadow-lg mb-4" *ngIf="admins">
+    <div>
+      <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+      <span>Your purchase has been confirmed!</span>
+    </div>
+  </div>
+  <h2 class="mt-2 mb-4 text-center text-3xl font-bold tracking-tight text-gray-900">List of admins</h2>
+  <div class="flex flex-row">
+    <input type="text"
+           placeholder="Search..."
+           class="input input-bordered w-full mb-2 mr-2 flex-auto " [(ngModel)]="term"/>
+    <button class="btn bg-blue-700 hover:bg-blue-800"
+            routerLink="/admin-create"
+            routerLinkActive="active">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
   <div class="relative overflow-auto">
-    <div class="border rounded my-3">
-      <table class="table-auto w-full border-gray-300">
+
+    <div class="overflow-x-auto border rounded-lg">
+      <table class="table table-compact w-full">
+        <!-- head -->
         <thead>
         <tr>
-          <th class="border-b  p-4 pl-8 pt-2 pb-3 text-left
-                     text-sm font-medium text-gray-500">Id</th>
-          <th class="border-b  p-4 pl-8 pt-2 pb-3 text-left
-                     text-sm font-medium text-gray-500">Name</th>
-          <th class="border-b  p-4 pl-8 pt-2 pb-3 text-left
-                     text-sm font-medium text-gray-500">Lastname</th>
-          <th class="border-b  p-4 pl-8 pt-2 pb-3 text-left
-                     text-sm font-medium text-gray-500">Email</th>
-          <th class="border-b  p-4 pl-8 pt-2 pb-3 text-left
-                     text-sm font-medium text-gray-500">Password</th>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Last name</th>
+          <th>Email</th>
+          <th>Password</th>
         </tr>
         </thead>
-        <tbody class="bg-white">
-        <tr *ngFor="let admin of adminsService.adminsArr | search:term; let i = index;"
-            (click)="viewPerson(person.id)"
-            class="hover:bg-gray-100">
-          <td class="border-b p-4 pl-8 pt-2 pb-2 text-left
-                    text-sm text-gray-900 sm:col-span-2 sm:mt-0"
-          >{{person.fullName}}</td>
-          <td class="border-b p-4 pl-8 pt-2 pb-2 text-left
-                    text-sm text-gray-900 sm:col-span-2 sm:mt-0">{{2022-person.yearOfBirth}}</td>
-          <td class="border-b p-4 pl-8 pt-2 pb-2 text-left
-                    text-sm text-gray-900 sm:col-span-2 sm:mt-0"
-          >
-            <div *ngIf="check(person); else elseBlock">
-              <h2 *ngFor="let book of person.books">
-                {{book.title}}, {{book.author}}, {{book.year}}
-              </h2>
-            </div>
-            <ng-template #elseBlock>
-              <h2>
-                —
-              </h2>
-            </ng-template>
-          </td>
+        <tbody>
+        <!-- row -->
+        <tr *ngFor="let admin of adminsService.adminsArr | searchAdmin:term; let i = index;"
+            class="hover"
+            (click)="viewAdmin(admin.id)">
+          <th>{{admin.id}}</th>
+          <td>{{admin.firstname}}</td>
+          <td>{{admin.lastname}}</td>
+          <td>{{admin.email}}</td>
+          <td>{{admin.password}}</td>
         </tr>
         </tbody>
       </table>
     </div>
-  </div>
-  <div class="flex flex-row-reverse ">
-    <a routerLink="/create-person"
-       routerLinkActive="active"
-       class="border rounded bg-black text-white px-2 py-1 text-sm
-                hover:border-indigo-500"
-    >+ Add</a>
+
   </div>
 </div>
+
 

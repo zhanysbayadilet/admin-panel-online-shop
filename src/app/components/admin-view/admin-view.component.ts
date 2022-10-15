@@ -2,7 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
 import { Admin } from 'src/app/models/admin';
-import {AdminService} from "../../services/admin.service";
+import {AdminsService} from "src/app/services/admins.service";
+
 
 
 @Component({
@@ -11,19 +12,20 @@ import {AdminService} from "../../services/admin.service";
   styleUrls: ['./admin-view.component.css']
 })
 export class AdminViewComponent implements OnInit {
-  @Input() admin: Admin | undefined
+  @Input() admin: Admin
   term = ''
   details = false
-  admins: Observable<Admin[]> | undefined;
-  state: boolean | undefined;
+  admins: Observable<Admin[]>
+  state: boolean
 
-  constructor(private router: Router, adminService : AdminService) { }
+  constructor(private router: Router, public adminsService : AdminsService) { }
 
   ngOnInit(): void {
+    this.adminsService.getAdmins().subscribe()
   }
 
-  viewPerson(adminId: number | undefined){
-    this.router.navigate(['view-admin', adminId]).then(r => 'view!');
+  viewAdmin(adminId: number | undefined){
+    this.router.navigate(['admins', adminId]).then(r => 'view!');
   }
 
 }
