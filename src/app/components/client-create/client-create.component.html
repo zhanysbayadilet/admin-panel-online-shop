@@ -1,0 +1,60 @@
+<div class="flex min-h-full items-center justify-center px-4 sm:px-6 lg:px-8 max-w-[350px] container mx-auto">
+  <div class="w-full max-w-md space-y-8">
+    <div>
+      <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Create new client</h2>
+    </div>
+    <form class="mt-8 space-y-6" (ngSubmit)="submit()">
+      <div class="-space-y-px rounded-md shadow-sm">
+        <div class="form-control w-full max-w-xs">
+          <label class="label">
+            <span class="label-text">Name</span>
+          </label>
+          <input type="text" class="input input-bordered w-full max-w-xs"
+                 id="firstname"
+                 placeholder="Name"
+                 [(ngModel)]="client.firstname"
+                 name="firstname"
+                 appFocus/>
+        </div>
+        <div class="form-control w-full max-w-xs">
+          <label class="label">
+            <span class="label-text">Lastname</span>
+          </label>
+          <input type="text" class="input input-bordered w-full max-w-xs"
+                 id="lastname"
+                 placeholder="Lastname"
+                 [(ngModel)]="client.lastname"
+                 name="lastname"
+                 appFocus/>
+        </div>
+
+        <div class="form-control w-full max-w-xs">
+          <label class="label">
+            <span class="label-text">Email</span>
+          </label>
+          <input type="text" class="input input-bordered w-full max-w-xs"
+                 id="email"
+                 placeholder="Email"
+                 [(ngModel)]="client.email"
+                 name="email"
+                 appFocus/>
+        </div>
+        <div class="form-control w-full max-w-xs">
+          <label class="label">
+            <span class="label-text">Password</span>
+          </label>
+          <input type="password" class="input input-bordered w-full max-w-xs"
+                 id="password"
+                 placeholder="Password"
+                 [(ngModel)]="client.password"
+                 name="password"
+                 appFocus/>
+        </div>
+      </div>
+      <button type="submit"
+              class="btn btn-block border-white hover:border-blue-800 bg-blue-600 hover:bg-blue-700"
+      >Create</button>
+    </form>
+
+  </div>
+</div>

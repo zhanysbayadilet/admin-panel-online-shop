@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Admin} from "../../models/admin";
+import {AdminsService} from "../../services/admins.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-admin-edit',
@@ -7,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminEditComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

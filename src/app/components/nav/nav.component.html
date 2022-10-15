@@ -1,16 +1,24 @@
-<div class="p-12 pb-6 pt-6 bg-white border-b">
-  <div class="flex flex-row">
-    <div class="basis-1/2">
-      <img class="w-[20px]" src="/assets/img/icons/qr-icon-blue.png" alt="icon">
-    </div>
-    <div class="basis-1/2 flex items-center justify-center">
-      <a href="/admins" class="mr-4 font-medium tracking-tight text-gray-500 hover:text-gray-900">Admins</a>
-      <a href="/clients" class="mr-4 font-medium tracking-tight text-gray-500 hover:text-gray-900">Clients</a>
-      <a href="/items" class="mr-4 font-medium tracking-tight text-gray-500 hover:text-gray-900">Items</a>
-    </div>
-    <div class="basis-1/2 flex flex-row-reverse items-center">
-      <mat-icon class="mr-2 opacity-80">perm_identity</mat-icon>
+<div class="navbar py-2 px-10 fixed glass z-40">
+  <div class="navbar-start ml-4">
+    <a class=" p-0 w-auto normal-case">
+      <div class="basis-1/5 flex -ml-5 flex-row items-center">
+        <img class="w-[20px] mr-2" src="/assets/img/icons/qr-icon.png" alt="icon">
+        <span class="font-oceanwide uppercase text-black opacity-95 tracking-tight font-bold">Admin — Adilet</span>
+      </div>
+    </a>
+  </div>
+  <div class="navbar-center">
+    <a href="/admins" class="tracking-tight mr-2">Admins</a>
+    <a href="/clients" class="tracking-tight mr-2">Clients</a>
+    <a href="/items" class="tracking-tight">Items</a>
+  </div>
+  <div class="navbar-end">
+    <div class="dropdown dropdown-end">
+      <label tabindex="0" class="btn btn-ghost btn-circle">
+        <div class="indicator">
+          <mat-icon>logout</mat-icon>
+        </div>
+      </label>
     </div>
   </div>
 </div>
-

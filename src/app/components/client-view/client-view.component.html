@@ -1,11 +1,11 @@
-<div class="py-4 px-6 rounded mb-2 max-w-2xl container mx-auto pt-5">
-  <h2 class="mt-2 mb-4 text-center text-3xl font-bold tracking-tight text-gray-900">List of admins</h2>
+<div class="py-4 px-6 rounded mb-2 max-w-4xl container mx-auto pt-5">
+  <h2 class="mt-2 mb-4 text-center text-3xl font-bold tracking-tight text-gray-900">List of clients</h2>
   <div class="flex flex-row">
     <input type="text"
            placeholder="Search..."
            class="input input-bordered w-full mb-2 mr-2 flex-auto " [(ngModel)]="term"/>
     <button class="btn bg-blue-700 border-blue-600 hover:border-blue-50 hover:bg-blue-800"
-            routerLink="/admins/create"
+            routerLink="/clients/create"
             routerLinkActive="active">
       <mat-icon>add</mat-icon>
     </button>
@@ -21,19 +21,23 @@
           <th>Name</th>
           <th>Last name</th>
           <th>Email</th>
+          <th>Number</th>
+          <th>Address</th>
           <th>Password</th>
         </tr>
         </thead>
         <tbody>
         <!-- row -->
-        <tr *ngFor="let admin of adminsService.adminsArr | searchAdmin:term; let i = index;"
+        <tr *ngFor="let client of clientsService.clientsArr | searchClient:term; let i = index;"
             class="hover"
-            (click)="viewAdmin(admin.id)">
-          <th>{{admin.id}}</th>
-          <td>{{admin.firstname}}</td>
-          <td>{{admin.lastname}}</td>
-          <td>{{admin.email}}</td>
-          <td>{{admin.password}}</td>
+            (click)="viewClient(client.id)">
+          <th>{{client.id}}</th>
+          <td>{{client.firstname}}</td>
+          <td>{{client.lastname}}</td>
+          <td>{{client.email}}</td>
+          <td>{{client.number}}</td>
+          <td>{{client.address}}</td>
+          <td>{{client.password}}</td>
         </tr>
         </tbody>
       </table>

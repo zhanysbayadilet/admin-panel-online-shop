@@ -12,6 +12,8 @@ export class AdminDetailsComponent implements OnInit {
 
   id: number;
   admin: Admin = new Admin();
+  success_alert = false;
+  RECHARGE_TIME = 2000;
 
   constructor(private adminsService: AdminsService,
               private router: Router,
@@ -30,7 +32,7 @@ export class AdminDetailsComponent implements OnInit {
 
 
   updateAdmin(id: number | undefined){
-    this.router.navigate(['update-admin', id]).then(r => 'Updated!');
+    this.router.navigate(['admins', id, 'edit']).then(r => 'Updated!');
   }
 
   deleteAdmin(adminId: number | undefined){
@@ -46,5 +48,26 @@ export class AdminDetailsComponent implements OnInit {
     this.router.navigate(['admins']).then(r => "admins list")
   }
 
+  submit(){
+    this.adminsService.updateAdmin(this.id, this.admin).subscribe(
+      data => {
+        this.BackToViewPerson(this.admin.id);
+      },
+      error => console.log(error)
+    );
+  }
 
+  BackToViewPerson(adminId: number | undefined){
+    this.router.navigate(['admins', adminId]).then(r => 'view!');
+  }
+
+  async enableSuccessAlert() {
+    this.success_alert = true
+    await this.delay(5000);
+    this.success_alert = false
+  }
+
+  async delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+  }
 }

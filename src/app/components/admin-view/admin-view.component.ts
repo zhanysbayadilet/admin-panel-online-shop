@@ -17,6 +17,7 @@ export class AdminViewComponent implements OnInit {
   details = false
   admins: Observable<Admin[]>
   state: boolean
+  success_alert = false
 
   constructor(private router: Router, public adminsService : AdminsService) { }
 
@@ -27,5 +28,4 @@ export class AdminViewComponent implements OnInit {
   viewAdmin(adminId: number | undefined){
     this.router.navigate(['admins', adminId]).then(r => 'view!');
   }
-
 }

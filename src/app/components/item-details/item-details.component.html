@@ -1,0 +1,135 @@
+<div class="py-4 px-6 rounded mb-2 max-w-2xl container mx-auto pt-5 ">
+
+  <div class="alert animate-bounce bg-blue-700 shadow-lg mb-4" *ngIf="success_alert">
+    <div class="text-white">
+      <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <span>{{item.name}} has been saved!</span>
+    </div>
+  </div>
+
+  <h2 class="mt-2 text-center text-3xl font-bold tracking-tight text-gray-900">
+    {{item.name}}</h2>
+  <div class="flex flex-row">
+
+  </div>
+  <div class="relative overflow-auto">
+    <form (ngSubmit)="submit()">
+      <div class="overflow-hidden bg-white">
+        <div class="border rounded-lg border-gray-200">
+          <dl class="rounded-lg">
+            <div class="bg-white px-4 rounded-lg py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500 pt-2">ID</dt>
+              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                <input type="number" placeholder="You can't touch this"
+                       class="input input-sm input-ghost w-full max-w-xs" disabled
+                       [value]="item.id"
+                />
+              </dd>
+            </div>
+            <div class="bg-gray-100 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500 py-2">Name</dt>
+              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                <input type="text" placeholder="Name"
+                       class="input input-sm input-ghost w-full max-w-xs"
+                       name="name"
+                       id="name"
+                       [value]="item.name"
+                       [(ngModel)]="item.name"
+                />
+              </dd>
+            </div>
+            <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500 py-2">Size</dt>
+              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                <input type="text" placeholder="Size"
+                       class="input input-sm input-ghost w-full max-w-xs"
+                       name="size"
+                       id="size"
+                       [value]="item.size"
+                       [(ngModel)]="item.size"
+                />
+              </dd>
+            </div>
+            <div class="bg-gray-100 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500 py-2">Description</dt>
+              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                <input type="text" placeholder="Description"
+                       class="input input-sm input-ghost w-full max-w-xs"
+                       name="description"
+                       id="description"
+                       [value]="item.description"
+                       [(ngModel)]="item.description"
+                />
+              </dd>
+            </div>
+            <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500 py-2">Color</dt>
+              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0" >
+                <input type="text" placeholder="Color"
+                       class="input input-sm input-ghost w-full max-w-xs"
+                       name="color"
+                       id="color"
+                       [value]="item.color"
+                       [(ngModel)]="item.color"
+                />
+              </dd>
+            </div>
+            <div class="bg-gray-100 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500 py-2">Images</dt>
+              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0" >
+                <input type="text" placeholder="Images"
+                       class="input input-sm input-ghost w-full max-w-xs"
+                       name="images"
+                       id="images"
+                       [value]="item.images"
+                       [(ngModel)]="item.images"
+                />
+              </dd>
+            </div>
+
+            <div class="bg-white rounded-b-lg px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500 py-2">Price</dt>
+              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                <input type="text" placeholder="Price"
+                       class="input input-sm input-ghost w-full max-w-xs"
+                       name="price"
+                       id="price"
+                       [value]="item.price"
+                       [(ngModel)]="item.price"
+                />
+              </dd>
+            </div>
+            <div class="bg-gray-100 rounded-b-lg px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <dt class="text-sm font-medium text-gray-500 py-2">Owner</dt>
+              <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                <input type="text" placeholder="Owner"
+                       class="input input-sm input-ghost w-full max-w-xs"
+                       name="owner"
+                       id="owner"
+                       [value]="item.owner"
+                       [(ngModel)]="item.owner"
+                />
+              </dd>
+            </div>
+
+          </dl>
+        </div>
+      </div>
+      <div class="flex flex-row mt-2">
+        <button type="submit"
+                class="btn btn-sm border-gray-400 bg-white text-black mr-2
+                     hover:bg-gray-200 hover:border-gray-200"
+                (click)="enableSuccessAlert()"
+        >Save</button>
+        <button type="button"
+                class="btn btn-sm border-gray-400 bg-white text-black
+                     hover:bg-red-600 hover:text-white hover:border-red-600"
+                (click)='deleteItem(item.id)'>Delete</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+

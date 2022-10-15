@@ -1,0 +1,83 @@
+<div class="flex min-h-full items-center justify-center px-4 sm:px-6 lg:px-8 max-w-[350px] container mx-auto">
+  <div class="w-full max-w-md space-y-8">
+    <div>
+      <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Create new item</h2>
+    </div>
+    <form class="mt-8 space-y-6" (ngSubmit)="submit()">
+      <div class="-space-y-px rounded-md shadow-sm">
+        <div class="form-control w-full max-w-xs">
+          <label class="label">
+            <span class="label-text">Name</span>
+          </label>
+          <input type="text" class="input input-bordered w-full max-w-xs"
+                 id="name"
+                 placeholder="Name"
+                 [(ngModel)]="item.name"
+                 name="name"
+                 appFocus/>
+        </div>
+        <div class="form-control w-full max-w-xs">
+          <label class="label">
+            <span class="label-text">Size</span>
+          </label>
+          <input type="text" class="input input-bordered w-full max-w-xs"
+                 id="size"
+                 placeholder="Size"
+                 [(ngModel)]="item.size"
+                 name="size"
+                 appFocus/>
+        </div>
+
+        <div class="form-control w-full max-w-xs">
+          <label class="label">
+            <span class="label-text">Description</span>
+          </label>
+          <input type="text" class="input input-bordered w-full max-w-xs"
+                 id="description"
+                 placeholder="Description"
+                 [(ngModel)]="item.description"
+                 name="description"
+                 appFocus/>
+        </div>
+        <div class="form-control w-full max-w-xs">
+          <label class="label">
+            <span class="label-text">Color</span>
+          </label>
+          <input type="text" class="input input-bordered w-full max-w-xs"
+                 id="color"
+                 placeholder="Color"
+                 [(ngModel)]="item.color"
+                 name="color"
+                 appFocus/>
+        </div>
+        <div class="form-control w-full max-w-xs">
+          <label class="label">
+            <span class="label-text">Images</span>
+          </label>
+          <input type="text" class="input input-bordered w-full max-w-xs"
+                 id="images"
+                 placeholder="Images"
+                 [(ngModel)]="item.images"
+                 name="images"
+                 appFocus/>
+        </div>
+        <div class="form-control w-full max-w-xs">
+          <label class="label">
+            <span class="label-text">Price</span>
+          </label>
+          <input type="text" class="input input-bordered w-full max-w-xs"
+                 id="price"
+                 placeholder="Price"
+                 [(ngModel)]="item.price"
+                 name="price"
+                 appFocus/>
+        </div>
+
+      </div>
+      <button type="submit"
+              class="btn btn-block border-white hover:border-blue-800 bg-blue-600 hover:bg-blue-700"
+      >Create</button>
+    </form>
+
+  </div>
+</div>
